@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Digital Revolution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --accent: #f43f5e;
+            --yes-btn: #008000;
+            --no-btn: #ff0000;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #636226 0%, #a85788 100%);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            max-width: 450px;
+            width: 90%;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .icon-box {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-weight: 800;
+            font-size: 2.2rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 10px 0;
+        }
+
+        p {
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* The Button Container */
+        .button-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px; /* Space between Yes and No */
+            margin-top: 20px;
+            min-height: 80px;
+        }
+
+        .btn {
+            padding: 12px 35px;
+            border: none;
+            border-radius: 15px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        #yesBtn {
+            background: var(--yes-btn);
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.4);
+            order: 1; /* Keeps it on the left */
+        }
+
+        #noBtn {
+            background: var(--no-btn);
+            color: white;
+            order: 2; /* Keeps it on the right */
+            transition: left 0.3s ease, top 0.3s ease; /* Smooth movement */
+            z-index: 10;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+        }
+
+        .success-content {
+            display: none;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #468908;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="mainCard">
+        <div id="inviteContent">
+            <div class="icon-box">💝</div>
+            <h1>Let's grow Together!</h1>
+            <p>Kanmani I found a future path for us <strong>Digital Marketing</strong> course. I’m ready to learn ( self learning) —are you coming with me?</p>
+
+            <div class="button-group">
+                <button class="btn" id="yesBtn" onclick="sayYes()">YES!</button>
+                <button class="btn" id="noBtn" onmouseover="moveButton()">NO</button>
+            </div>
+        </div>
+
+        <div class="success-content" id="successMsg">
+            <div class="icon-box">🚀</div>
+            <h1>It's time to rock!</h1>
+            <p>Awesome! Let's conquer the digital world together. Then why are you waiting CALL me!</p>
+            <button class="btn" id="yesBtn" onclick="location.reload()" style="background: #6366f1;">Thank you</button>
+        </div>
+
+        <footer>
+            SUCCESS IS BETTER WITH A PARTNER
+        </footer>
+    </div>
+
+    <script>
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            
+            // Calculate random position within the visible window
+            const maxX = window.innerWidth - noBtn.offsetWidth;
+            const maxY = window.innerHeight - noBtn.offsetHeight;
+            
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        function sayYes() {
+            document.getElementById('inviteContent').style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+        }
+    </script>
+</body>
+</html>
